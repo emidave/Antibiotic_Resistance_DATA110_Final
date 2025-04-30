@@ -5,8 +5,8 @@ import numpy as np
 # This is a special variable because we only have it based on the region level, not the country level
 
 # Load the datasets
-antibiotics_sold_without_prescription = pd.read_csv("antibiotics_sold_without_prescription.csv")
-merged_df = pd.read_csv("data/merged.csv")
+antibiotics_sold_without_prescription = pd.read_csv('./data/raw/antibiotics_sold_without_prescription.csv')
+merged_df = pd.read_csv("./data/raw/merged.csv")
 
 def add_antibiotics_column(merged_df, antibiotics_sold_without_prescription):
     # Ensure the 'Region' column is present in both dataframes
@@ -25,8 +25,8 @@ def add_antibiotics_column(merged_df, antibiotics_sold_without_prescription):
 
     return merged_df
 
-# Example usage
+# Deploying our function
 merged_df = add_antibiotics_column(merged_df, antibiotics_sold_without_prescription)
 
 # Save the updated merged_df to a new CSV file
-merged_df.to_csv('merged_with_antibiotics.csv', index=False)
+merged_df.to_csv('./data/raw/merged_with_antibiotics.csv', index=False)
